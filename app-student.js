@@ -40,30 +40,42 @@ const create = (data = { firstName, lastName, grade, age, city }) => {
 //<<<
 
 // index
-// const index = () => {
-//   Student.find()
-//     .then(students => console.log(students))
-//     .then(done)
-//     .catch(console.log);
-// };
-// index();
+const index = () => {
+  Student.find()
+    .then(students => console.log(students))
+    .then(done)
+    .catch(console.log);
+};
+index();
 //>>>
 
 //<<<
 
 //show
-// const show = id => {
-//   Student.findById(id)
-//     .then(student => console.log(student))
-//     .then(done)
-//     .catch(console.log);
-// };
+const show = id => {
+  Student.findById(id)
+    .then(student => console.log(student))
+    .then(done)
+    .catch(console.log);
+};
 // show("5e2550f93f296c301d1d57a1");
 //>>>
 
 //<<<
 
 // destroy
+const destroy = id => {
+  // first way
+  // Student.findById(id)
+  // .then(student => student.remove())
+  // .then(() => console.log('removed studen'))
+  // second way
+  Student.findByIdAndDelete(id)
+    .then(student => console.log(student))
+    .then(done)
+    .catch(err => console.log(err));
+};
+// destroy("5e2550f93f296c301d1d57a1");
 //>>>
 
 //<<<
