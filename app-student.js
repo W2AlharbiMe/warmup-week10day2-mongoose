@@ -6,18 +6,37 @@ mongoose.connect(url, {
   useNewUrlParser: true
 });
 
+// import student model
+const Student = require("./models/student");
+
 const db = mongoose.connection;
 
 const done = () => db.close();
-
-// import student model
-const student = require("./models/student");
 
 ///     CRUD    ///
 
 //>>>
 // create
-
+const create = (data = { firstName, lastName, grade, age, city }) => {
+  Student.create(data)
+    .then(student => console.log(student))
+    .then(done)
+    .catch(err => console.log(err));
+};
+create({
+  firstName: "Abdullah",
+  lastName: "Alharbi",
+  grade: 100,
+  age: 21,
+  city: "Riyadh"
+});
+create({
+  firstName: "Ahmed",
+  lastName: "D",
+  grade: 100,
+  age: 19,
+  city: "Riyadh"
+});
 //<<<
 
 // index
